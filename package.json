@@ -1,0 +1,27 @@
+{
+  "name": "@thinkmill/scripts",
+  "description": "A collection of scripts to get you up and running",
+  "version": "0.0.1",
+  "author": "Vito Belgiorno-Zegna",
+  "main": "src/index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thinkmill/scripts.git"
+  },
+  "bin": {
+    "tm-scripts": "./bin/run"
+  },
+  "files": [
+    "/bin",
+    "/src"
+  ],
+  "dependencies": {
+    "chalk": "^2.4.0",
+    "execa": "^0.10.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1"
+  }
+}
