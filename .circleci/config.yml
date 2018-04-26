@@ -37,10 +37,10 @@ jobs:
           paths:
             - node_modules
 
-      # Run builder
-      - run:
-          name: "Build package"
-          command: npm run build
+    #   Run builder
+    #   - run:
+    #       name: "Build package"
+    #       command: npm run build
 
       - run:
           name: "Lint code"

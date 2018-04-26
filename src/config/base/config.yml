@@ -37,15 +37,14 @@ jobs:
           paths:
             - node_modules
 
-      # Run builder
-      - run:
-          name: "Build package"
-          command: npm run build
+    #   Run builder
+    #   - run:
+    #       name: "Build package"
+    #       command: npm run build
 
       - run:
           name: "Lint code"
           command: yarn eslint ./src --format junit -o reports/junit/js-lint-results.xml
-
 
     # If you are using jest, uncomment this block.
     #   - run:
