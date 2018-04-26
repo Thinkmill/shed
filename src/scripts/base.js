@@ -27,6 +27,9 @@ const base = () => {
 		await copyConfig('base/.eslintrc');
 		await copyConfig('base/.prettierrc');
 		await copyConfig('base/.editorconfig');
+
+		// Add Circle CI config.
+		await copyConfig('base/config.yml', '.circleci/');
 		res();
 	});
 };

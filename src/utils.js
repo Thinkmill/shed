@@ -39,12 +39,23 @@ const installPackage = async (pkgName, dev) => {
 	}
 };
 
-const copyConfig = async filename => {
-	const filePath = path.join(__dirname, 'config', filename);
+const copyConfig = async (filename, dir) => {
 	log(chalk.cyan(`Copying ${filename}`));
 
+	let dirPath;
+	let filePath = path.join(__dirname, 'config', filename);
+	let options = ['-r', filePath];
+
+	if (dir) {
+		dirPath = path.join(process.cwd(), dir);
+		options.push(dirPath);
+		await execa('mkdir', ['-p', dirPath]);
+	} else {
+		options.push(process.cwd());
+	}
+
 	try {
-		await execa('cp', [filePath, process.cwd()]);
+		await execa('cp', options);
 	} catch (e) {
 		log(chalk.red(e));
 	}

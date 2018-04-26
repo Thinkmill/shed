@@ -1,0 +1,61 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:carbon
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v2-dependencies-{{ checksum "client/package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v2-dependencies-
+
+      - run:
+          name: install-npm-packages
+          command: npm install
+          working_directory: ~/repo/client
+
+      - save_cache:
+          key: v2-dependencies-{{ checksum "client/package.json" }}
+          paths:
+            - client/node_modules
+
+      # Run builder
+      - run:
+          working_directory: ~/repo/client
+          command: npm run build
+
+      - run:
+          name: "JavaScript Linter"
+          # yarn here makes sure we are using the local jest binary
+          command: npm run lint_ci
+          working_directory: ~/repo/client
+
+      - run:
+          name: "JavaScript Test Suite"
+          # yarn here makes sure we are using the local jest binary
+          command: npm run test_ci
+          working_directory: ~/repo/client
+          environment:
+            JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
+
+      - store_test_results:
+          path: client/reports/junit
+      - store_artifacts:
+          path: client/reports/junit
