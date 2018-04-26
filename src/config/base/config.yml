@@ -46,6 +46,7 @@ jobs:
           name: "Lint code"
           command: yarn eslint ./src --format junit -o reports/junit/js-lint-results.xml
 
+
     # If you are using jest, uncomment this block.
     #   - run:
     #       name: "Run tests"
