@@ -22,8 +22,8 @@ $ npm i -g tm-scripts
 $ mkdir new-project && cd new-project
 $ npx tm-scripts
 
-# 1. Installs: eslint, prettier, babel-eslint, prettier-eslint
-# 2. Adds: .editorconfig, .eslintrc, .gitignore, .prettierrc
+# 1. Installs: eslint, prettier, babel-eslint, prettier-eslint, babel and friends
+# 2. Adds: .editorconfig, .eslintrc, .gitignore, .prettierrc, .babelrc
 ```
 
 ## Todo

@@ -25,4 +25,4 @@
     semi: 'error',
     strict: 'off',
   }
-};
+}
