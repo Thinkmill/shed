@@ -6,7 +6,6 @@ const {
 
 const base = () => {
 	return new Promise(async res => {
-		const x = 2;
 		// Initialise your package.json.
 		await initYarn();
 
