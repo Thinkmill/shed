@@ -19,6 +19,7 @@ const inquire = async () => {
 
 const initYarn = async () => {
 	try {
+		// Create a private project -> '-yp'.
 		const { stdout } = await execa('yarn', ['init', '-yp']);
 		log(chalk.yellow(stdout));
 	} catch (e) {

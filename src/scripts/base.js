@@ -6,8 +6,11 @@ const {
 
 const base = () => {
 	return new Promise(async res => {
+
+		// Initialise your package.json.
 		await initYarn();
 
+		// Install dependencies.
 		await installPackage('babel-cli', 'dev');
 		await installPackage('babel-core', 'dev');
 		await installPackage('babel-preset-env', 'dev');
@@ -18,6 +21,7 @@ const base = () => {
 		await installPackage('prettier', 'dev');
 		await installPackage('prettier-eslint', 'dev');
 
+		// Add config files.
 		await copyConfig('base/.babelrc');
 		await copyConfig('base/.gitignore');
 		await copyConfig('base/.eslintrc');
