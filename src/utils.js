@@ -8,13 +8,28 @@ const log = console.log;
 const inquire = async () => {
 	return await inquirer.prompt([{
 		type: 'checkbox',
-		message: 'Specify your configs',
-		name: 'configs',
+		message: 'Choose your recipes',
+		name: 'recipes',
 		choices: [
-			{ name: 'Base', checked: true, disabled: true },
-			{ name: 'React' },
+			{ name: 'base', checked: true, disabled: true },
+			{ name: 'react' },
 		],
 	}]);
+};
+
+const makeDish = async ({ init, dependencies, config }) => {
+	// Initialise your package.json.
+	if (init) await initYarn();
+
+	// Install dependencies.
+	for (let dep of dependencies) {
+		await installPackage(dep);
+	}
+
+	// Copy config.
+	for (let item of config) {
+		await copyConfig(item);
+	}
 };
 
 const initYarn = async () => {
@@ -27,8 +42,8 @@ const initYarn = async () => {
 	}
 };
 
-const installPackage = async (pkgName, dev) => {
-	let options = ['add', pkgName];
+const installPackage = async ({ name, dev }) => {
+	let options = ['add', name];
 	if (dev) options.push('--dev');
 
 	try {
@@ -39,11 +54,11 @@ const installPackage = async (pkgName, dev) => {
 	}
 };
 
-const copyConfig = async (filename, dir) => {
-	log(chalk.cyan(`Copying ${filename}`));
+const copyConfig = async ({ name, dir }) => {
+	log(chalk.cyan(`Copying ${name}`));
 
 	let dirPath;
-	let filePath = path.join(__dirname, 'config', filename);
+	let filePath = path.join(__dirname, 'config', name);
 	let options = ['-r', filePath];
 
 	if (dir) {
@@ -63,7 +78,5 @@ const copyConfig = async (filename, dir) => {
 
 module.exports = {
 	inquire,
-	initYarn,
-	installPackage,
-	copyConfig,
+	makeDish,
 };

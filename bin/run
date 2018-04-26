@@ -1,5 +1,3 @@
 #!/usr/bin/env node
 
-require('..')
-.then(console.log)
-.catch(console.error);
+require('..')();

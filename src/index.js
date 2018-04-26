@@ -1,11 +1,13 @@
-const { inquire } = require('./utils');
-const { base, react } = require('./scripts');
+const recipes = require('./recipes');
+const {
+	inquire,
+	makeDish,
+} = require('./utils');
 
-const run = async () => {
-	const { configs } = await inquire();
-
-	await base();
-	if (configs.includes('React')) await react();
+module.exports = async () => {
+	const { menu = [] } = await inquire();
+	menu.unshift('base');
+	for (let dish of menu) {
+		await makeDish(recipes[dish]);
+	}
 };
-
-module.exports = run();
