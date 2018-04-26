@@ -15,7 +15,8 @@
   ],
   "dependencies": {
     "chalk": "^2.4.0",
-    "execa": "^0.10.0"
+    "execa": "^0.10.0",
+    "inquirer": "^5.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

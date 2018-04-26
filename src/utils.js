@@ -1,18 +1,20 @@
-const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 const execa = require('execa');
+const inquirer = require('inquirer');
 
 const log = console.log;
 
-const hasBase = async () => {
-	// TODO: Checking for .eslintrc is not safe enough.
-	return new Promise(res => {
-		fs.readFile(path.join(process.cwd(), '.eslintrc'), 'utf8', err => {
-			if (err) res(false);
-			else res(true);
-		});
-	});
+const inquire = async () => {
+	return await inquirer.prompt([{
+		type: 'checkbox',
+		message: 'Specify your configs',
+		name: 'configs',
+		choices: [
+			{ name: 'Base', checked: true },
+			{ name: 'React' },
+		],
+	}]);
 };
 
 const initYarn = async () => {
@@ -48,7 +50,7 @@ const copyConfig = async filename => {
 };
 
 module.exports = {
-	hasBase,
+	inquire,
 	initYarn,
 	installPackage,
 	copyConfig,
