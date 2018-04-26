@@ -4,7 +4,7 @@ const { base, react } = require('./scripts');
 const run = async () => {
 	const { configs } = await inquire();
 
-	if (configs.includes('Base')) await base();
+	await base();
 	if (configs.includes('React')) await react();
 };
 

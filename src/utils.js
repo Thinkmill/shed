@@ -11,7 +11,7 @@ const inquire = async () => {
 		message: 'Specify your configs',
 		name: 'configs',
 		choices: [
-			{ name: 'Base', checked: true },
+			{ name: 'Base', checked: true, disabled: true },
 			{ name: 'React' },
 		],
 	}]);
