@@ -45,6 +45,7 @@ It's easy to add or upgrade a recipe. There's 3 places you'll need to add your c
 ## Todo
 - [x] Extend it to accomodate different types of 'recipes'
 - [x] Add [Inquirer](https://github.com/SBoudrias/Inquirer.js)
+- [ ] Publish to npm
 - [ ] Get buy-in from everyone to contribute to this repo
 - [ ] Watch everyone else flesh this thing out....
 - [ ] Precommit, prepublish and ci scripts.
