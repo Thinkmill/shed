@@ -7,7 +7,5 @@ const {
 module.exports = async () => {
 	const { menu = [] } = await inquire();
 	menu.unshift('base');
-	for (let dish of menu) {
-		await makeDish(recipes[dish]);
-	}
+	for (let dish of menu) await makeDish(recipes[dish]);
 };
