@@ -5,7 +5,7 @@ A series of simple scripts (aka _recipes_) to scaffold up a project with Thinkmi
 
 ## Prerequisites
 **Node**  
-You'll need to be using a version of Node.js equal to or greater than `8.x`.
+You'll need to be using a version of Node.js `>= 8.x`.
 
 **Yarn**  
 Make sure you have `yarn` already installed globally. The easiest way to get it is via [brew](https://brew.sh/) - `brew install yarn`.
@@ -25,9 +25,9 @@ $ npx tm-scripts
 
 ## Recipes
 #### Base
-Your stock standard TM devDependencies and config files. Including:
+Your stock standard TM devDependencies and config files.  
 **Installs:**  
-`eslint, prettier, babel-eslint, prettier-eslint, babel and friends`  
+`eslint, prettier, babel-eslint, prettier-eslint, jest, husky, babel and friends`  
 **Adds:**  
 `.editorconfig, .eslintrc, .gitignore, .prettierrc, .babelrc, .circlei`
 
