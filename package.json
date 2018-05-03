@@ -1,7 +1,7 @@
 {
   "name": "@thinkmill/scripts",
   "description": "A collection of scripts to get you up and running",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Vito Belgiorno-Zegna",
   "main": "src/index.js",
   "license": "MIT",
