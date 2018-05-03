@@ -26,12 +26,21 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.19.1",
+    "husky": "^0.14.3",
+    "jest": "^22.4.3",
     "prettier": "^1.12.1",
     "prettier-eslint": "^8.8.1"
   },
   "scripts": {
+    "test": "jest",
+    "prepublishOnly": "yarn test",
     "release:patch": "npm version patch && git push && git push --tags",
     "release:minor": "npm version minor && git push && git push --tags",
     "release:major": "npm version major && git push && git push --tags"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn eslint"
+    }
   }
 }

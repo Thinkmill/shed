@@ -2,16 +2,17 @@ module.exports = {
 	base: {
 		init: true,
 		dependencies: [
+			{ name: 'jest', dev: true },
+			{ name: 'husky', dev: true },
+			{ name: 'eslint', dev: true },
+			{ name: 'prettier', dev: true },
 			{ name: 'babel-cli', dev: true },
 			{ name: 'babel-core', dev: true },
+			{ name: 'babel-eslint', dev: true },
+			{ name: 'prettier-eslint', dev: true },
 			{ name: 'babel-preset-env', dev: true },
 			{ name: 'babel-plugin-transform-class-properties', dev: true },
 			{ name: 'babel-plugin-transform-object-rest-spread', dev: true },
-			{ name: 'babel-eslint', dev: true },
-			{ name: 'eslint', dev: true },
-			{ name: 'husky', dev: true },
-			{ name: 'prettier', dev: true },
-			{ name: 'prettier-eslint', dev: true },
 		],
 		config: [
 			{ name: 'base/.babelrc' },
@@ -27,6 +28,8 @@ module.exports = {
 					'pre-commit': 'yarn eslint'
 				}
 			},
+			test: 'jest',
+			prepublish: 'yarn test',
 			'release:patch': 'npm version patch && npm tags && npm push --tags',
 			'release:minor': 'npm version minor && npm tags && npm push --tags',
 			'release:major': 'npm version major && npm tags && npm push --tags'
