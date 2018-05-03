@@ -7,6 +7,7 @@ module.exports = {
 		{ name: 'prettier', dev: true },
 		{ name: 'babel-cli', dev: true },
 		{ name: 'babel-core', dev: true },
+		{ name: 'lint-staged', dev: true },
 		{ name: 'babel-eslint', dev: true },
 		{ name: 'prettier-eslint', dev: true },
 		{ name: 'babel-preset-env', dev: true },
@@ -19,18 +20,28 @@ module.exports = {
 		{ name: 'base/.eslintrc' },
 		{ name: 'base/.prettierrc' },
 		{ name: 'base/.editorconfig' },
+		{ name: 'base/index.spec.js', dir: '__test__' },
 		{ name: 'base/config.yml', dir: '.circleci/' },
 	],
 	scripts: {
 		husky: {
 			hooks: {
-				'pre-commit': 'yarn eslint'
+				'pre-commit': 'lint-staged'
 			}
 		},
-		test: 'jest',
+		jest: {
+			testEnvironment: 'node',
+			testRegex: '\\.spec.js$'
+		},
+		'lint-staged': {
+			'*.js': ['eslint --fix', 'git add']
+		},
 		prepublish: 'yarn test',
-		'release:patch': 'npm version patch && npm tags && npm push --tags',
-		'release:minor': 'npm version minor && npm tags && npm push --tags',
-		'release:major': 'npm version major && npm tags && npm push --tags'
+		'test:lint': 'yarn eslint',
+		'test:unit': 'jest',
+		test: 'yarn test:lint && yarn test:unit',
+		'release:patch': 'yarn version patch && yarn tags && yarn push --tags',
+		'release:minor': 'yarn version minor && yarn tags && yarn push --tags',
+		'release:major': 'yarn version major && yarn tags && yarn push --tags'
 	},
 };
