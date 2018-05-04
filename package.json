@@ -6,6 +6,7 @@
   "main": "src/index.js",
   "license": "MIT",
   "repository": "https://github.com/thinkmill/scripts.git",
+  "preferGlobal": true,
   "bin": {
     "tm-scripts": "./bin/run"
   },
@@ -13,6 +14,9 @@
     "/bin",
     "/src"
   ],
+  "engines": {
+    "node": ">=8"
+  },
   "dependencies": {
     "chalk": "^2.4.0",
     "execa": "^0.10.0",

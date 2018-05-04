@@ -5,7 +5,7 @@ A series of simple scripts (aka _recipes_) to scaffold up a project with Thinkmi
 
 ## Prerequisites
 **Node**  
-You'll need to be using a version of Node.js `>= 8.x`.
+You'll need to be using a version of Node.js `>=8`.
 
 **Yarn**  
 Make sure you have `yarn` already installed globally. The easiest way to get it is via [brew](https://brew.sh/) - `brew install yarn`.
@@ -25,11 +25,27 @@ $ npx tm-scripts
 
 ## Recipes
 #### Base
+
+```sh
+# root dir structure
++ __test__
+    +-- index.spec.js
+|-- .circleci
+    +-- config.yml
+|-- .babelrc
+|-- .editorconfig
+|-- .eslintrc
+|-- .gitignore
+|-- .prettierrc
+|-- node_modules
+|-- package.json
+|-- yarn.lock
+```
 Your stock standard TM devDependencies and config files.  
 **Installs:**  
-`eslint, prettier, babel-eslint, prettier-eslint, jest, husky, babel and friends`  
+`eslint, prettier, babel-eslint, prettier-eslint, jest, husky, lint-staged, babel and friends`  
 **Adds:**  
-`.editorconfig, .eslintrc, .gitignore, .prettierrc, .babelrc, .circlei`
+`.editorconfig, .eslintrc, .gitignore, .prettierrc, .babelrc, .circlei, __test__`
 
 #### React
 **Installs:**  
@@ -49,4 +65,3 @@ It's easy to add or upgrade a recipe. There's 3 places you'll need to add your c
 - [x] Publish to npm
 - [ ] Get buy-in from everyone to contribute to this repo
 - [ ] Watch everyone else flesh this thing out....
-
