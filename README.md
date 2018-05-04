@@ -1,14 +1,14 @@
-# Thinkmill Scripts
+# **The Ol' Bike Shed**
 
 ## What
-A series of simple scripts (aka _recipes_) to scaffold up a project with Thinkmill specific conventions.
+A series of simple scripts (aka _**recipes**_) to scaffold up a project with Thinkmill specific conventions.
 
 ## Prerequisites
-**Node**  
-You'll need to be using a version of Node.js `>=8`.
-
-**Yarn**  
-Make sure you have `yarn` already installed globally. The easiest way to get it is via [brew](https://brew.sh/) - `brew install yarn`.
+```sh
+node >=8
+yarn
+# If you don't have it, `brew install yarn`
+```
 
 ## Usage
 ```sh
@@ -25,33 +25,25 @@ $ npx tm-scripts
 
 ## Recipes
 #### Base
-
+Your stock standard TM `devDependencies` and config files.
 ```sh
-# root dir structure
-+ __test__
-    +-- index.spec.js
-|-- .circleci
-    +-- config.yml
-|-- .babelrc
-|-- .editorconfig
-|-- .eslintrc
-|-- .gitignore
-|-- .prettierrc
-|-- node_modules
-|-- package.json
-|-- yarn.lock
+# Dir structure
+.
+├── .babelrc
+├── .circleci
+│   └── config.yml
+├── .editorconfig
+├── .eslintrc
+├── .gitignore
+├── .prettierrc
+├── __test__
+│   └── index.spec.js
+├── package.json
+└── yarn.lock
 ```
-Your stock standard TM devDependencies and config files.  
-**Installs:**  
-`eslint, prettier, babel-eslint, prettier-eslint, jest, husky, lint-staged, babel and friends`  
-**Adds:**  
-`.editorconfig, .eslintrc, .gitignore, .prettierrc, .babelrc, .circlei, __test__`
 
 #### React
-**Installs:**  
-`react, react-dom, react-router-dom, babel and friends, react-related eslint plugins`  
-**Amends:**  
-`.eslintrc, .babelrc`
+A stripped-down version of [create-react-app](https://github.com/facebook/create-react-app).
 
 ## Contributing
 It's easy to add or upgrade a recipe. There's 3 places you'll need to add your code:
