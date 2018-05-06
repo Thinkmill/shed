@@ -37,7 +37,8 @@
     "prettier-eslint": "^8.8.1"
   },
   "scripts": {
-    "test:lint": "yarn eslint",
+    "test:lint": "eslint .",
+    "test:lint:ci": "eslint ./src --format junit -o reports/junit/js-lint-results.xml",
     "test:unit": "jest",
     "test": "yarn test:lint && yarn test:unit",
     "prepublishOnly": "yarn test",

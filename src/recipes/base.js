@@ -36,12 +36,13 @@ module.exports = {
 		'lint-staged': {
 			'*.js': ['eslint --fix', 'git add']
 		},
-		prepublish: 'yarn test',
-		'test:lint': 'yarn eslint',
+		'test:lint': 'eslint .',
+		'test:lint:ci': 'eslint . --format junit -o reports/junit/js-lint-results.xml',
 		'test:unit': 'jest',
 		test: 'yarn test:lint && yarn test:unit',
-		'release:patch': 'yarn version patch && yarn tags && yarn push --tags',
-		'release:minor': 'yarn version minor && yarn tags && yarn push --tags',
-		'release:major': 'yarn version major && yarn tags && yarn push --tags'
+		prepublishOnly: 'yarn test',
+		'release:patch': 'npm version patch && git push && git push --tags',
+		'release:minor': 'npm version minor && git push && git push --tags',
+		'release:major': 'npm version major && git push && git push --tags'
 	},
 };
