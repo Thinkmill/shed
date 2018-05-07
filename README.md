@@ -42,7 +42,7 @@ Your stock standard TM `devDependencies` and config files.
 └── yarn.lock
 ```
 
-#### React
+#### React _(I think this needs some work...)_
 A stripped-down version of [create-react-app](https://github.com/facebook/create-react-app).
 
 ## Contributing
