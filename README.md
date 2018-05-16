@@ -12,15 +12,15 @@ yarn
 
 ## Usage
 ```sh
-$ npx tm-scripts
+$ npx @thinkmill/scripts
 # or
-$ npm i -g tm-scripts
+$ npm i -g @thinkmill/scripts
 ```
 
 ## Example
 ```sh
 $ mkdir new-project && cd new-project
-$ npx tm-scripts
+$ npx @thinkmill/scripts
 ```
 
 ## Recipes
