@@ -18,6 +18,7 @@ module.exports = {
 		{ name: 'base/.babelrc' },
 		{ name: 'base/.gitignore' },
 		{ name: 'base/.eslintrc' },
+		{ name: 'base/.eslintignore' },
 		{ name: 'base/.prettierrc' },
 		{ name: 'base/.editorconfig' },
 		{ name: 'base/index.spec.js', dir: '__test__' },
