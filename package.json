@@ -1,14 +1,14 @@
 {
-  "name": "@thinkmill/scripts",
-  "description": "A collection of scripts to get you up and running",
+  "name": "@thinkmill/shed",
+  "description": "Find all your bike shedding needs under one roof",
   "version": "0.0.7",
   "author": "Vito Belgiorno-Zegna",
   "main": "src/index.js",
   "license": "MIT",
-  "repository": "https://github.com/thinkmill/scripts.git",
+  "repository": "https://github.com/thinkmill/shed.git",
   "preferGlobal": true,
   "bin": {
-    "tm-scripts": "./bin/run"
+    "shed": "./bin/run"
   },
   "files": [
     "/bin",

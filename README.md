@@ -1,4 +1,4 @@
-# **The Ol' Bike Shed**
+# 🚲 **The Ol' Bike Shed**
 
 ## What
 A series of simple scripts (aka _**recipes**_) to scaffold up a project with Thinkmill specific conventions.
@@ -12,15 +12,15 @@ yarn
 
 ## Usage
 ```sh
-$ npx @thinkmill/scripts
+$ npx @thinkmill/shed
 # or
-$ npm i -g @thinkmill/scripts
+$ npm i -g @thinkmill/shed
 ```
 
 ## Example
 ```sh
 $ mkdir new-project && cd new-project
-$ npx @thinkmill/scripts
+$ npx @thinkmill/shed
 ```
 
 ## Recipes
