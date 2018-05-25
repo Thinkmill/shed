@@ -1,12 +1,9 @@
 module.exports = {
 	init: false,
-	dependencies: [
-		{ name: 'react', dev: false },
-		{ name: 'react-dom', dev: false },
-		{ name: 'react-router-dom', dev: false },
-		{ name: 'babel-preset-react', dev: true },
-		{ name: 'eslint-plugin-react', dev: true },
-	],
+	packages: {
+		deps: ['react', 'react-dom', 'react-router-dom'],
+		dev: ['babel-preset-react', 'eslint-plugin-react'],
+	},
 	config: [
 		{ name: 'react/.babelrc' },
 		{ name: 'react/.eslintrc' },

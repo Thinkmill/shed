@@ -33,6 +33,7 @@ Your stock standard TM `devDependencies` and config files.
 ├── .circleci
 │   └── config.yml
 ├── .editorconfig
+├── .eslintignore
 ├── .eslintrc
 ├── .gitignore
 ├── .prettierrc

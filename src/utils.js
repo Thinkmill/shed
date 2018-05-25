@@ -25,7 +25,7 @@ const inquire = async () => {
 
 const makeDish = async ({
 	init = false,
-	dependencies = [],
+	packages = { dep: [], dev: [] },
 	config = [],
 	scripts = {},
 }) => {
@@ -33,7 +33,9 @@ const makeDish = async ({
 	if (init) await initYarn();
 
 	// Install dependencies.
-	for (let dep of dependencies) await installPackage(dep);
+	for (let key in packages) {
+		await installPackages({ key, packages: packages[key] });
+	}
 
 	// Copy config.
 	for (let item of config) await copyConfig(item);
@@ -52,11 +54,13 @@ const initYarn = async () => {
 	}
 };
 
-const installPackage = async ({ name, dev }) => {
-	let options = ['add', name];
-	if (dev) options.push('--dev');
+const installPackages = async ({ key, packages }) => {
+	if (!packages.length) return;
+	const options = ['add', ...packages];
+	if (key === 'dev') options.push('--dev');
 
 	try {
+		log(chalk.magenta(`Installing ${packages.join(', ')}`));
 		const { stdout } = await execa('yarn', options);
 		log(chalk.magenta(stdout));
 	} catch (e) {
